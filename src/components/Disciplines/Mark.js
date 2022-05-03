@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Mark() {
+export default function Disciplines() {
 
   return (
-       <>Mark</>
+       <>Disciplines</>
   );
 }

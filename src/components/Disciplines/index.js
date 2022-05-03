@@ -1,1 +1,1 @@
-export { default } from './Mark';
+export { default } from './Disciplines';

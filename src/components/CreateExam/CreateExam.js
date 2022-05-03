@@ -1,33 +1,18 @@
 import React from 'react';
-import {Card} from "react-bootstrap";
+import CreateExamForm from "../CreateExamForm";
+import Mark from "../Mark";
+import Disciplines from "../Disciplines/Mark";
+import FavoriteDiscipline from "../FavoriteDiscipline";
 
 export default function CreateExam() {
 
   return (
-      <Card>
-        <Card.Header>Wprowadź swoje dane</Card.Header>
-        <Card.Body>
-          <Form.Select aria-label="Default select example">
-            <option>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </Form.Select>
-          <Form.Select aria-label="Default select example">
-            <option>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </Form.Select>
-          <Form.Select aria-label="Default select example">
-            <option>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </Form.Select>
-          <Button variant="primary">Cofnij</Button>
-          <Button variant="primary">Dalej</Button>
-        </Card.Body>
-      </Card>
+     <>
+       <CreateExamForm />
+       <Mark />
+       <Disciplines />
+       <FavoriteDiscipline />
+
+     </>
   );
 }
