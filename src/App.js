@@ -1,14 +1,17 @@
-import './App.css';
-import { Button } from 'react-bootstrap';
+import * as React from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-          <Button variant="primary">Button #1</Button>
-      </header>
-    </div>
-  );
+export default function App() {
+    return (
+        <div>
+            <h1>Egzamin z Wychowania Fizycznego</h1>
+            <nav style={{ borderBottom: 'solid 1px', paddingBottom: '1rem' }}>
+                <Link to="/exam">exam</Link> |{' '}
+                <Link to="/famale-exam">famale-exam</Link> {' '}
+                <Link to="/male-exam">male-exam</Link>
+            </nav>
+            <Outlet />
+        </div>
+    );
+
 }
-
-export default App;
