@@ -25,8 +25,6 @@ export default function CreateExamForm() {
             <option value="2">Two</option>
             <option value="3">Three</option>
           </Form.Select>
-          <Button variant="primary">Cofnij</Button>
-          <Button variant="primary">Dalej</Button>
         </Card.Body>
       </Card>
   );
