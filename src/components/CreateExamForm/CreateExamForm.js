@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Form, Button} from "react-bootstrap";
+import {Card, Form} from "react-bootstrap";
 
 export default function CreateExamForm() {
 
