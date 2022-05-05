@@ -10,6 +10,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
+import {Button, Card, ListGroup} from "react-bootstrap";
 
 export default function ExamChart() {
 
@@ -55,6 +56,11 @@ export default function ExamChart() {
   };
 
   return (
-      <Bar options={options} data={data} />
+      <Card>
+        <Card.Header>Porównanie z maksymalnym wynikiem</Card.Header>
+        <Card.Body>
+          <Bar options={options} data={data} />
+        </Card.Body>
+      </Card>
   );
 }
