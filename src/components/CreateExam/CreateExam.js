@@ -7,9 +7,15 @@ import {Button} from "react-bootstrap";
 import Exam from "../Exam";
 
 export default function CreateExam() {
-
-    const item = [<CreateExamForm />, <Mark />, <Disciplines />, <FavoriteDiscipline />];
     const [itemNumber, setItemNumber] = useState(0);
+    const [mark, setMark] = useState(5);
+
+    function giveGrade(grade) {
+        console.log('mark', grade);
+        setMark(grade);
+    }
+
+    const item = [<CreateExamForm />, <Mark onSetMark={giveGrade}/>, <Disciplines />, <FavoriteDiscipline />];
 
     const handlePrevious = () => setItemNumber(prevItemNumber => prevItemNumber - 1);
     const handleNext = () => setItemNumber(prevItemNumber => prevItemNumber + 1);
