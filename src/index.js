@@ -4,17 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter,Routes, Route } from 'react-router-dom';
-import Exam from "./components/Exam";
+import MyExam from "./components/MyExam";
 import FemaleExam from "./components/FemaleExam";
 import MaleExam from "./components/MaleExam";
+import { auth } from './firebase';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<App />} >
-                  <Route path="exam" element={<Exam />} />
+                  <Route path="exam" element={<MyExam />} />
                   <Route path="famale-exam" element={<FemaleExam />} />
                   <Route path="male-exam" element={<MaleExam />} />
               </Route>
