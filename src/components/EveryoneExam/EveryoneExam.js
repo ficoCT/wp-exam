@@ -1,9 +1,9 @@
 import React from 'react';
 import {Container} from "react-bootstrap";
 
-export default function MaleExam() {
+export default function EveryoneExam() {
 
   return (
-      <Container>MaleExam</Container>
+      <Container>EveryoneExam</Container>
   );
 }

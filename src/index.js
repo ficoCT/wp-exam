@@ -7,6 +7,7 @@ import Exam from "./components/Exam";
 import FemaleExam from "./components/FemaleExam";
 import MaleExam from "./components/MaleExam";
 import CreateExam from "./components/CreateExam";
+import EveryoneExam from "./components/EveryoneExam";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,7 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />} >
-                    <Route path="exam" element={<Exam />} />
+                    <Route path="everyone-exam" element={<EveryoneExam />} />
                     <Route path="famale-exam" element={<FemaleExam />} />
                     <Route path="male-exam" element={<MaleExam />} />
                     <Route path="create-exam" element={<CreateExam />} />

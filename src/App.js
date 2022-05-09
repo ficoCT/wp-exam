@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import LoginLogoutForm from './components/Form';
 import { auth } from './firebase';
+import {Container, Nav, Navbar} from "react-bootstrap";
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState(null);
@@ -18,23 +19,26 @@ export default function App() {
         });
     }, []);
     return (
-        <div>
-            <h1>Egzamin z Wychowania Fizycznego</h1>
-            <div>
-                {currentUser ? (
-                    <h1>Zalogowany</h1>
-                ) : (
-                    <h1 logout>Niezalogowany</h1>
-                )}
-                <LoginLogoutForm />
-            </div>
-            <nav style={{ borderBottom: 'solid 1px', paddingBottom: '1rem' }}>
-                <Link to="/exam">exam</Link> |{' '}
-                <Link to="/famale-exam">famale-exam</Link> {' '}
-                <Link to="/male-exam">male-exam</Link>
-                <Link to="/create-exam">create-exam</Link>
-            </nav>
+        <>
+            {/*<div>*/}
+            {/*    {currentUser ? (*/}
+            {/*        <h1>Zalogowany</h1>*/}
+            {/*    ) : (*/}
+            {/*        <h1 logout>Niezalogowany</h1>*/}
+            {/*    )}*/}
+            {/*    <LoginLogoutForm />*/}
+            {/*</div>*/}
+            <Navbar bg="primary" variant="dark">
+                <Container>
+                    <Navbar.Brand href="/everyone-exam">Egzamin WF</Navbar.Brand>
+                    <Nav className="me-auto">
+                        <Nav.Link href="/famale-exam"> Egzamin kobiety</Nav.Link>
+                        <Nav.Link href="/male-exam">Egzamin mężczyźni</Nav.Link>
+                        <Nav.Link href="/create-exam">Utwórz egzamin</Nav.Link>
+                    </Nav>
+                </Container>
+            </Navbar>
             <Outlet />
-        </div>
+        </>
     );
 }

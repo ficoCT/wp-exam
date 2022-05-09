@@ -3,7 +3,7 @@ import CreateExamForm from "../CreateExamForm";
 import Mark from "../Mark";
 import Disciplines from "../Disciplines";
 import FavoriteDiscipline from "../FavoriteDiscipline";
-import {Button} from "react-bootstrap";
+import {Button, Container} from "react-bootstrap";
 import Exam from "../Exam";
 
 export default function CreateExam() {
@@ -21,12 +21,12 @@ export default function CreateExam() {
     const handleNext = () => setItemNumber(prevItemNumber => prevItemNumber + 1);
 
   return (
-     <>
+      <Container>
          {item[itemNumber]}
          <Button variant="primary" disabled={itemNumber===0} onClick={() => handlePrevious()}>Cofnij</Button>
          <Button variant="primary" disabled={itemNumber===item.length} onClick={() => handleNext()}>Dalej</Button>
 
          {itemNumber===item.length ? <Exam /> : null}
-     </>
+          </Container>
   );
 }
