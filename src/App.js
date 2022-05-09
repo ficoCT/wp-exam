@@ -32,6 +32,7 @@ export default function App() {
                 <Link to="/exam">exam</Link> |{' '}
                 <Link to="/famale-exam">famale-exam</Link> {' '}
                 <Link to="/male-exam">male-exam</Link>
+                <Link to="/create-exam">create-exam</Link>
             </nav>
             <Outlet />
         </div>
