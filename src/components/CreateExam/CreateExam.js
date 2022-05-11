@@ -8,14 +8,28 @@ import Exam from "../Exam";
 
 export default function CreateExam() {
     const [itemNumber, setItemNumber] = useState(0);
-    const [mark, setMark] = useState(5);
+    const [dataPerson, setDataPerson] = useState({});
+    const [mark, setMark] = useState(0);
+
+    function giveDataPerson(person) {
+        console.log('dataPerson', person);
+        setDataPerson(person);
+    }
 
     function giveGrade(grade) {
         console.log('mark', grade);
         setMark(grade);
     }
 
-    const item = [<CreateExamForm />, <Mark onSetMark={giveGrade}/>, <Disciplines />, <FavoriteDiscipline />];
+    function giveDisciplines() {
+
+    }
+
+    function giveFavoriteDisciplines() {
+
+    }
+
+    const item = [<CreateExamForm onSetDataPerson={giveDataPerson}/>, <Mark onSetMark={giveGrade}/>, <Disciplines onSetDisciplines={giveDisciplines}/>, <FavoriteDiscipline favoriteDisciplines={giveFavoriteDisciplines}/>];
 
     const handlePrevious = () => setItemNumber(prevItemNumber => prevItemNumber - 1);
     const handleNext = () => setItemNumber(prevItemNumber => prevItemNumber + 1);
@@ -23,8 +37,8 @@ export default function CreateExam() {
   return (
       <Container>
          {item[itemNumber]}
-         <Button variant="primary" disabled={itemNumber===0} onClick={() => handlePrevious()}>Cofnij</Button>
-         <Button variant="primary" disabled={itemNumber===item.length} onClick={() => handleNext()}>Dalej</Button>
+         <Button className="m-2"variant="primary" disabled={itemNumber===0} onClick={() => handlePrevious()}>Cofnij</Button>
+         <Button className="m-2"variant="primary" disabled={itemNumber===item.length} onClick={() => handleNext()}>Dalej</Button>
 
          {itemNumber===item.length ? <Exam /> : null}
           </Container>
