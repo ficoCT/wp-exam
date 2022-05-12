@@ -10,6 +10,7 @@ export default function CreateExam() {
     const [itemNumber, setItemNumber] = useState(0);
     const [dataPerson, setDataPerson] = useState({});
     const [mark, setMark] = useState(0);
+    const [disciplines, setDisciplines] = useState({});
 
     function giveDataPerson(person) {
         console.log('dataPerson CreateExam', person);
@@ -23,6 +24,7 @@ export default function CreateExam() {
 
     function giveDisciplines(discipline1, discipline2, discipline3) {
         console.log('disciplines', discipline1, discipline2, discipline3);
+        setDisciplines({discipline1, discipline2, discipline3});
     }
 
     function giveFavoriteDisciplines() {
@@ -40,7 +42,7 @@ export default function CreateExam() {
          <Button className="m-2"variant="primary" disabled={itemNumber===0} onClick={() => handlePrevious()}>Cofnij</Button>
          <Button className="m-2"variant="primary" disabled={itemNumber===item.length} onClick={() => handleNext()}>Dalej</Button>
 
-         {itemNumber===item.length ? <Exam /> : null}
+         {itemNumber===item.length ? <Exam dataPerson={dataPerson} mark={mark} disciplines={disciplines}/> : null}
           </Container>
   );
 }

@@ -12,7 +12,12 @@ import { Bar } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
 import {Button, Card, ListGroup} from "react-bootstrap";
 
-export default function ExamChart() {
+export default function ExamChart({disciplines}) {
+
+  const labels = ['', '', '', 'Brzuszki'];
+  labels[0] = disciplines.discipline1 === 'running' ? 'Bieganie' : 'Pływanie';
+  labels[1] = disciplines.discipline2 === 'pullUps' ? 'Podciąganie na drążku' : 'Pompki';
+  labels[2] = disciplines.discipline3 === 'running10x10' ? 'Bieg 10x10' : 'Bieg koperta';
 
   ChartJS.register(
       CategoryScale,
@@ -36,8 +41,6 @@ export default function ExamChart() {
       },
     },
   };
-
-  const labels = ['Bieganie', 'Podciąganie', 'Bieg 10x10', 'Brzuszki'];
 
   const data = {
     labels,
