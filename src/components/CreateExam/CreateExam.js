@@ -12,17 +12,17 @@ export default function CreateExam() {
     const [mark, setMark] = useState(0);
 
     function giveDataPerson(person) {
-        console.log('dataPerson', person);
+        console.log('dataPerson CreateExam', person);
         setDataPerson(person);
     }
 
     function giveGrade(grade) {
-        console.log('mark', grade);
+        console.log('mark CreateExam', grade);
         setMark(grade);
     }
 
-    function giveDisciplines() {
-
+    function giveDisciplines(discipline1, discipline2, discipline3) {
+        console.log('disciplines', discipline1, discipline2, discipline3);
     }
 
     function giveFavoriteDisciplines() {

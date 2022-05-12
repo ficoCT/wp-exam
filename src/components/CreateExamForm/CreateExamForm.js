@@ -1,23 +1,26 @@
 import React, {useState} from 'react';
-import {Card, Form} from "react-bootstrap";
+import {Button, Card, Form} from "react-bootstrap";
 
-export default function CreateExamForm(onSetDataPerson) {
+export default function CreateExamForm({onSetDataPerson}) {
 
   const [dataPerson, setDataPerson] = useState({sex:'', year:'',category:''});
 
   const handleDataPersonChange = (e) => {
     const { name, value } = e.target;
     setDataPerson(values => ({ ...values, [name]: value }));
-    console.log(dataPerson);
+  };
+
+  function handleSubmit(event) {
+    event.preventDefault();
     if (typeof onSetDataPerson !== 'function') return;
     onSetDataPerson(dataPerson);
-  };
+  }
 
   return (
       <Card>
         <Card.Header>Wprowadź swoje dane</Card.Header>
         <Card.Body>
-          <Form>
+          <Form onSubmit={handleSubmit}>
           <Form.Select className="mb-2" aria-label="Default select example" name="sex" value={dataPerson.sex} onChange={handleDataPersonChange}>
             <option>Podaj płeć</option>
             <option value="K">Kobieta</option>
@@ -41,6 +44,7 @@ export default function CreateExamForm(onSetDataPerson) {
             <option value="3">3</option>
             <option value="4">4</option>
           </Form.Select>
+          <Button className="m-2"variant="primary" type="submit">Zatwierdz</Button>
           </Form>
         </Card.Body>
       </Card>
