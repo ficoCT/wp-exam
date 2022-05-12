@@ -4,7 +4,7 @@ import {Button, Card, ListGroup} from "react-bootstrap";
 export default function ExamResults() {
 
   return (
-      <Card>
+      <Card className="m-3">
         <Card.Header>Wyniki egzaminu</Card.Header>
         <Card.Body>
           <ListGroup variant="flush">
@@ -13,8 +13,8 @@ export default function ExamResults() {
             <ListGroup.Item>Brzuszki</ListGroup.Item>
             <ListGroup.Item>Bieg 10x10</ListGroup.Item>
           </ListGroup>
-          SUMA<Button variant="primary">99</Button>
-          OCENA<Button variant="success">5</Button>
+          SUMA<Button className="m-2" variant="primary">99</Button>
+          OCENA<Button className="m-2" variant="success">5</Button>
         </Card.Body>
       </Card>
   );

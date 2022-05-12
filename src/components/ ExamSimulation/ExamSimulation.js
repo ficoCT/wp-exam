@@ -6,7 +6,7 @@ import {Card} from "react-bootstrap";
 export default function ExamSimulation() {
 
   return (
-    <Card>
+    <Card className="m-3">
         <Card.Header>Symulacja egzaminu</Card.Header>
         <Card.Body>
             <ExamSimulationPoints />
