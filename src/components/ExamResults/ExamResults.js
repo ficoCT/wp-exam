@@ -1,7 +1,9 @@
 import React from 'react';
 import {Button, Card, ListGroup} from "react-bootstrap";
 
-export default function ExamResults() {
+export default function ExamResults({points}) {
+
+  console.log('points', points);
 
   return (
       <Card className="m-3">
