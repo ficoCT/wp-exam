@@ -7,13 +7,13 @@ import ExamSimulation from "../ ExamSimulation";
 
 export default function Exam({dataPerson, mark, disciplines, standards}) {
 
-    const [points, setPoints] = useState({discipline1: 0, discipline2: 0, discipline3: 0});
-    const [results, setResults] = useState({discipline1: 0, discipline2: 0, discipline3: 0});
+    const [points, setPoints] = useState({discipline1points: 0, discipline2points: 0, discipline3points: 0});
+    const [results, setResults] = useState({discipline1results: 0, discipline2results: 0, discipline3results: 0});
 
-    function setResult(discipline, nameDiscipline, nrTab1, nrTab2, ageGroup, point) {
-        let dis = discipline === nameDiscipline ? nrTab1 : nrTab2;
+    function setResult(discipline, nrTab1, nrTab2, ageGroup, point) {
+        let dis = disciplines.discipline1 === 'running' ? nrTab1 : nrTab2;
         let index = standards[dis][`${ageGroup}`].indexOf(point);
-        return standards[0][`${dis}`][index];
+        return standards[0][`${disciplines.discipline1}`][index];
     }
 
     function setPointsA() {
@@ -31,15 +31,23 @@ export default function Exam({dataPerson, mark, disciplines, standards}) {
         if(year>=51 && year<=55) ageGroup = 'age51_55';
         if(year>=56)ageGroup = 'age_po55';
 
-        if(mark===5) {
-            let index;
-            let dis = disciplines.discipline1 === 'running' ? 1 : 2;
-            if (mark === 5) { index = standards[dis][`${ageGroup}`].indexOf(38)};
-            let resultDiscipline1 = standards[0][`${disciplines.discipline1}`][index];
+        let points1 = 0;
+        let points2 = 0;
+        switch (mark) {
+            case 5:
+                points1 = 38;
+                points2 = 20;
+                break;
         }
-        let point = 38;
-        let wynik = setResult(disciplines.discipline1, 'running', 1, 2, ageGroup, point);
-        console.log('wynik', wynik);
+        let res1 = setResult(disciplines.discipline1, 1, 2, ageGroup, points1);
+        let res2 = setResult(disciplines.discipline2, 3, 4, ageGroup, points2);
+        setResults(results => ({ ...results, discipline1results: res1}));
+        setPoints(points => ({ ...points, discipline1points: points1}));
+    }
+
+    function onChangePoints(name, value) {
+        let result = points[`${name}`] + value;
+        setPoints(points => ({ ...points, [`${name}`]: result}));
     }
 
     useEffect(() => {
@@ -48,9 +56,9 @@ export default function Exam({dataPerson, mark, disciplines, standards}) {
 
     return (
         <>
-            <ExamResults disciplines={disciplines} points={points} results={results}/>
-            <ExamChart disciplines={disciplines}/>
-            <ExamSimulation />
+            <ExamResults disciplines={disciplines} points={points} results={results} />
+            <ExamChart disciplines={disciplines} points={points} />
+            <ExamSimulation disciplines={disciplines} points={points} results={results} onChangePoints={onChangePoints}/>
         </>
     );
 }

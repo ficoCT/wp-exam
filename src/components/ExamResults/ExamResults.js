@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Card, ListGroup} from "react-bootstrap";
 
-export default function ExamResults({points}) {
+export default function ExamResults({disciplines, points, results}) {
 
   // console.log('points', points);
 
@@ -10,7 +10,7 @@ export default function ExamResults({points}) {
         <Card.Header>Wyniki egzaminu</Card.Header>
         <Card.Body>
           <ListGroup variant="flush">
-            <ListGroup.Item>Bieganie</ListGroup.Item>
+            <ListGroup.Item>{disciplines.discipline1} {' '} {results.discipline1results} {' '} {points.discipline1points}</ListGroup.Item>
             <ListGroup.Item>Podciąganie</ListGroup.Item>
             <ListGroup.Item>Brzuszki</ListGroup.Item>
             <ListGroup.Item>Bieg 10x10</ListGroup.Item>

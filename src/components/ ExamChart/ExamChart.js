@@ -9,10 +9,9 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
-import {Button, Card, ListGroup} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
-export default function ExamChart({disciplines}) {
+export default function ExamChart({disciplines, points}) {
 
   const labels = ['', '', '', 'Brzuszki'];
   labels[0] = disciplines.discipline1 === 'running' ? 'Bieganie' : 'Pływanie';
@@ -47,12 +46,13 @@ export default function ExamChart({disciplines}) {
     datasets: [
       {
         label: 'Mój wynik',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        // data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        data: [points.discipline1points,30,40,50],
         backgroundColor: '#ff8c00',
       },
       {
         label: 'Wynik maksymalny',
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        data: [points.discipline1points,80,80,80],
         backgroundColor: '#006600',
       },
     ],
