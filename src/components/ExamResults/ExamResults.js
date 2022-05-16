@@ -3,7 +3,7 @@ import {Button, Card, ListGroup} from "react-bootstrap";
 
 export default function ExamResults({points}) {
 
-  console.log('points', points);
+  // console.log('points', points);
 
   return (
       <Card className="m-3">
