@@ -11,7 +11,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { Card } from "react-bootstrap";
 
-export default function ExamChart({disciplines, points}) {
+export default function ExamChart({disciplines, points, maxPoints}) {
 
   const labels = ['', '', '', 'Brzuszki'];
   labels[0] = disciplines.discipline1 === 'running' ? 'Bieganie' : 'Pływanie';
@@ -52,7 +52,7 @@ export default function ExamChart({disciplines, points}) {
       },
       {
         label: 'Wynik maksymalny',
-        data: [points.discipline1points,80,80,80],
+        data: [maxPoints.discipline1maxPoints,80,80,80],
         backgroundColor: '#006600',
       },
     ],
