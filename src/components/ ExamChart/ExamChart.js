@@ -10,6 +10,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { Card } from "react-bootstrap";
+import './ExamChart.scss';
 
 export default function ExamChart({disciplines, points, maxPoints}) {
 
@@ -34,10 +35,6 @@ export default function ExamChart({disciplines, points, maxPoints}) {
         position: 'top',
         // position: 'top' as const,
       },
-      title: {
-        display: true,
-        text: 'Dyscypliny',
-      },
     },
   };
 
@@ -47,12 +44,12 @@ export default function ExamChart({disciplines, points, maxPoints}) {
       {
         label: 'Mój wynik',
         // data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        data: [points.discipline1points,30,40,50],
+        data: [points.discipline1points,points.discipline2points,40,50],
         backgroundColor: '#ff8c00',
       },
       {
         label: 'Wynik maksymalny',
-        data: [maxPoints.discipline1maxPoints,80,80,80],
+        data: [maxPoints.discipline1maxPoints,maxPoints.discipline1maxPoints,80,80],
         backgroundColor: '#006600',
       },
     ],
@@ -60,7 +57,7 @@ export default function ExamChart({disciplines, points, maxPoints}) {
 
   return (
       <Card className="m-3">
-        <Card.Header>Porównanie z maksymalnym wynikiem</Card.Header>
+        <Card.Header className="examChartHeader">Porównanie z maksymalnym wynikiem</Card.Header>
         <Card.Body>
           <Bar options={options} data={data} />
         </Card.Body>

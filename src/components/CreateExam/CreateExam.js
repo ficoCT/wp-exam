@@ -17,6 +17,18 @@ export default function CreateExam() {
     const db = getFirestore(app);
 
     function giveDataPerson(person) {
+        let date = new Date();
+        let year = date.getFullYear() - person.year;
+        let ageGroup = '';
+        if(year<=20) ageGroup = 'age_do20';
+        if(year>=21 && year<=25) ageGroup = 'age21_25';
+        if(year>=31 && year<=35) ageGroup = 'age31_35';
+        if(year>=36 && year<=40) ageGroup = 'age36_40';
+        if(year>=41 && year<=45) ageGroup = 'age41_45';
+        if(year>=46 && year<=50) ageGroup = 'age46_50';
+        if(year>=51 && year<=55) ageGroup = 'age51_55';
+        if(year>=56) ageGroup = 'age_po55';
+        person.group = ageGroup;
         console.log('dataPerson CreateExam', person);
         setDataPerson(person);
     }
