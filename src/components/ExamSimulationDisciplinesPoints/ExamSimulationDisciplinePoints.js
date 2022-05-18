@@ -16,14 +16,16 @@ export default function ExamSimulationDisciplinePoints({disciplines, points, res
       <>
         <span className="title">{disciplines.discipline1}{' '}{results.discipline1results}</span>
         <div className="progressBarContainer">
-        <Button className="me-1" variant="warning" onClick={() => handlePointsButtonClick('discipline1points', -1)}>-</Button>
+        <Button className="me-1" variant="warning" onClick={() => handlePointsButtonClick('discipline1points', -0.4)}>-</Button>
             <ProgressBar className="me-1" now={points.discipline1points} label={`${points.discipline1points}pkt`} />
-        <Button className="mx-1" variant="success" onClick={() => handlePointsButtonClick('discipline1points', 1)}>+</Button></div>
-        <span className="title">Podciąganie na drążku</span>
-        <div className="progressBarContainer"> <Button variant="warning">-</Button><ProgressBar now={now} label={`${now}pkt`} /><Button variant="success">+</Button></div><span className="title">Brzuszki</span>
-        <div className="progressBarContainer"> <Button variant="warning">-</Button><ProgressBar now={now} label={`${now}pkt`} /><Button variant="success">+</Button></div>
-        <span className="title">Bieg 10x10</span>
-        <div className="progressBarContainer"><Button variant="warning">-</Button><ProgressBar now={now} label={`${now}pkt`} /><Button variant="success">+</Button></div>
+        <Button className="mx-1" variant="success" onClick={() => handlePointsButtonClick('discipline1points', 0.4)}>+</Button>
+        </div>
+          <span className="title">{disciplines.discipline2}{' '}{results.discipline2results}</span>
+          <div className="progressBarContainer">
+              <Button className="me-1" variant="warning" onClick={() => handlePointsButtonClick('discipline2points', -0.8)}>-</Button>
+              <ProgressBar className="me-1" now={points.discipline2points} label={`${points.discipline2points}pkt`} />
+              <Button className="mx-1" variant="success" onClick={() => handlePointsButtonClick('discipline2points', 0.8)}>+</Button>
+          </div>
       </>
   );
 }

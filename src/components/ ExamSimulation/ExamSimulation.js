@@ -9,7 +9,7 @@ export default function ExamSimulation({disciplines, points, results, onChangePo
     <Card className="m-3">
         <Card.Header>Symulacja egzaminu</Card.Header>
         <Card.Body>
-            <ExamSimulationPoints />
+            <ExamSimulationPoints points={points}/>
             <ExamSimulationDisciplinePoints disciplines={disciplines} points={points} results={results} onChangePoints={onChangePoints}/>
         </Card.Body>
     </Card>

@@ -3,7 +3,8 @@ import {Button, Card, ListGroup} from "react-bootstrap";
 
 export default function ExamResults({disciplines, points, results}) {
 
-  console.log('results.discipline2results',results.discipline2results);
+  let now = points.discipline1points + points.discipline2points + points.discipline3points;
+  now = Number(now.toFixed(1))
 
   return (
       <Card className="m-3">
@@ -15,7 +16,7 @@ export default function ExamResults({disciplines, points, results}) {
             <ListGroup.Item>Brzuszki</ListGroup.Item>
             <ListGroup.Item>Bieg 10x10</ListGroup.Item>
           </ListGroup>
-          SUMA<Button className="m-2" variant="primary">99</Button>
+          SUMA<Button className="m-2" variant="primary">{now}</Button>
           OCENA<Button className="m-2" variant="success">5</Button>
         </Card.Body>
       </Card>

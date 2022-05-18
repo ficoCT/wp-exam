@@ -23,7 +23,10 @@ export default function MaleExam() {
   return (
       <Container>
       {exam.length ?
+          <>
+          <span></span>
           <TableExam standard={exam[0].running} ageCategories={exam[1]}/>
+          </>
       : 'Ładuje się ...'}
       </Container>
   );

@@ -11,13 +11,12 @@ export default function Exam({dataPerson, mark, disciplines, standards}) {
     const [points, setPoints] = useState({discipline1points: 0, discipline2points: 0, discipline3points: 0});
     const [maxResults, setMaxResults] = useState({discipline1maxResults: 0, discipline2maxResults: 0, discipline3maxResults: 0});
     const [maxPoints, setMaxPoints] = useState({discipline1maxPoints: 0, discipline2maxPoints: 0, discipline3maxPoints: 0});
+    let ageGroup = '';
 
-    function setResult(discipline, name, nrDiscipline, nrTab1, nrTab2, ageGroup, point) {
+    function setResult(discipline, name, nrDiscipline, nrTab1, nrTab2, point) {
         let dis = discipline === name ? nrTab1 : nrTab2;
         let index = standards[dis][`${ageGroup}`].indexOf(point);
-        console.log('index', index);
         let res = standards[0][`${discipline}`][index];
-        console.log('res ', res );
         setResults(results => ({ ...results, [`discipline${nrDiscipline}results`]: res}));
         setPoints(points => ({ ...points, [`discipline${nrDiscipline}points`]: point}));
     }
@@ -33,21 +32,23 @@ export default function Exam({dataPerson, mark, disciplines, standards}) {
         setMaxPoints(points => ({ ...points, discipline1maxPoints: maxPoint.d1}));
     }
 
-    function setPointsA() {
+    function AgeGroup() {
         let date = new Date();
         let year = date.getFullYear() - dataPerson.year;
         console.log(year);
-        let ageGroup = '';
         if(year<=20) ageGroup = 'age_do20';
         if(year>=21 && year<=25) ageGroup = 'age21_25';
-        if(year>=26 && year<=30) ageGroup = 'age26_30';
         if(year>=31 && year<=35) ageGroup = 'age31_35';
         if(year>=36 && year<=40) ageGroup = 'age36_40';
         if(year>=41 && year<=45) ageGroup = 'age41_45';
         if(year>=46 && year<=50) ageGroup = 'age46_50';
         if(year>=51 && year<=55) ageGroup = 'age51_55';
-        if(year>=56)ageGroup = 'age_po55';
+        if(year>=56) ageGroup = 'age_po55';
+    }
 
+    function DisciplinePoints() {
+
+        AgeGroup();
         let point1 = 0;
         let point2 = 0;
         let maxPoint = 0;
@@ -57,18 +58,21 @@ export default function Exam({dataPerson, mark, disciplines, standards}) {
                 point2 = 20.2;
                 break;
         }
-        setResult(disciplines.discipline1,'running', 1, 1, 2, ageGroup, point1);
-        setResult(disciplines.discipline2,'pullUps', 2, 3, 4, ageGroup, point2);
+        setResult(disciplines.discipline1,'running', 1, 1, 2, point1);
+        setResult(disciplines.discipline2,'pullUps', 2, 3, 4, point2);
         setMaxDisciplinePoints(ageGroup);
     }
 
     function onChangePoints(name, value) {
-        let result = points[`${name}`] + value;
-        setPoints(points => ({ ...points, [`${name}`]: result}));
+        let onChangeValue = points[`${name}`] + value;
+        onChangeValue = Number(onChangeValue.toFixed(1));
+        setPoints(points => ({ ...points, [`${name}`]: onChangeValue}));
+        if(name === 'discipline1points') setResult(disciplines.discipline1,'running', 1, 1, 2, onChangeValue);
+        if(name === 'discipline2points') setResult(disciplines.discipline2,'pullUps', 2, 3, 4, onChangeValue);
     }
 
     useEffect(() => {
-        setPointsA();
+        DisciplinePoints();
     },[]);
 
     return (
