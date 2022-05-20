@@ -37,6 +37,7 @@ export default function App() {
                         <Nav.Link href="/create-exam">Utwórz egzamin</Nav.Link>
                     </Nav>
                     <Nav className="justify-content-end">
+                        <Nav.Link href="/ad-exam">Administrator</Nav.Link>
                         <Nav.Link href="/my-exam">Moje egzaminy</Nav.Link>
                         <Nav.Link href="/">Zaloguj się</Nav.Link>
                         <Nav.Link href="/">Zarejestruj się</Nav.Link>

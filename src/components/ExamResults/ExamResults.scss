@@ -1,0 +1,19 @@
+.examResultsHeader {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.examResultsItem {
+  display: flex;
+  justify-content: space-between;
+  &__discipline {
+    font-weight: bold;
+  }
+}
+
+.examResultsButtons {
+  display: flex;
+  justify-content: space-around;
+}
+

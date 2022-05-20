@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
+import { getFirestore, collection, query, where, getDocs, doc, setDoc } from "firebase/firestore";
 import { app } from '../../firebase';
 import {Container, Table} from "react-bootstrap";
 
@@ -7,6 +7,7 @@ export default function MyExam() {
 
   const [examList, setExamList] = useState([]);
   const db = getFirestore(app);
+
   const listExams = examList.map((exam) =>
       <li key={exam.year}>
         {exam.grade} {' '}

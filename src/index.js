@@ -8,6 +8,7 @@ import MaleExam from "./components/MaleExam";
 import CreateExam from "./components/CreateExam";
 import EveryoneExam from "./components/EveryoneExam";
 import MyExam from "./components/MyExam";
+import Admin from "./components/Admin";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
                     <Route path="male-exam" element={<MaleExam />} />
                     <Route path="create-exam" element={<CreateExam />} />
                     <Route path="my-exam" element={<MyExam />} />
+                    <Route path="ad-exam" element={<Admin />} />
                 </Route>
             </Routes>
         </BrowserRouter>
